@@ -1,0 +1,154 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import heroImage from '../assets/puenktchen-mountains.jpg';
+import standingImage from '../assets/puenktchen-standing.jpg';
+import { routes, type Lang } from '../data/site';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+
+const content = lang === 'de' ? {
+  title: 'Schnüffler’s Dalmatiner | Dalmatinerzucht in Hanau',
+  description: 'Schnüffler’s Dalmatiner in Hanau: Cosima Grun und ihre LUA-Hündin Pünktchen. Verantwortungsvolle Zucht im CDF / VDH, A-Wurf geplant für Sommer 2027.',
+  heroEyebrow: 'Dalmatinerzucht · Hanau',
+  heroTitle: ['Ein neues Kapitel', 'in Schwarz & Weiß.'],
+  heroText: 'Schnüffler’s ist eine junge Dalmatinerzucht von Cosima Grun. Im Mittelpunkt steht Pünktchen – freundlich, ausgeglichen, sportlich und zur Zucht zugelassen.',
+  heroLink: 'Pünktchen kennenlernen',
+  labels: ['Geboren', 'Zucht', 'Genstatus', 'Geplant'],
+  facts: ['02.12.23', 'CDF / VDH', 'LUA · N/hu', 'A-Wurf · 2027'],
+  introEyebrow: 'Schnüffler’s Dalmatiner',
+  introTitle: 'Mit Sorgfalt beginnen.',
+  introText: 'Cosima hat sich ihren Wunsch nach einem Dalmatiner nach langer und sorgfältiger Suche erfüllt. Mit Pünktchen fand sie genau die Hündin, die sie sich erhofft hatte: sozial, freundlich, bewegungsfreudig und aus einer Zucht, die Gesundheit und genetische Vielfalt ernst nimmt.',
+  dogEyebrow: 'Bacardi Feeling Canadian Amethyst',
+  dogTitle: 'Pünktchen',
+  dogText: 'Eine ruhige Hündin mit viel Energie für draußen. Pünktchen liebt den täglichen Auslauf auf den großen Feldern rund um ihr Zuhause und die Begegnung mit anderen Hunden.',
+  dogLink: 'Zu Pünktchens Profil',
+  futureEyebrow: 'Wurfplanung',
+  futureTitle: 'Unser A-Wurf ist für den Sommer 2027 geplant.',
+  futureText: 'Die Planung steht noch am Anfang. Gesundheit, eine passende Verpaarung und verantwortungsvolle Vorbereitung haben Vorrang. Wer Schnüffler’s früh kennenlernen möchte, kann sich gern unverbindlich melden.',
+  futureLink: 'Mehr zur Zuchtplanung',
+  valuesEyebrow: 'Wofür wir stehen',
+  values: [
+    ['Genetische Vielfalt', 'LUA-Genstatus und eine sorgfältige Auswahl der Verpaarung gehören für uns zu verantwortungsvoller Dalmatinerzucht.'],
+    ['Wesen', 'Pünktchens freundliche, soziale und ausgeglichene Art ist ein wesentlicher Grund für Cosimas Zuchtwunsch.'],
+    ['Bewegung', 'Dalmatiner brauchen verlässlich Bewegung und Beschäftigung. Pünktchen läuft und spielt täglich ein bis zwei Stunden draußen.'],
+  ],
+} : {
+  title: 'Schnüffler’s Dalmatians | Dalmatian breeder in Hanau',
+  description: 'Meet Schnüffler’s Dalmatians in Hanau, Cosima Grun and her LUA Dalmatian Pünktchen. Responsible CDF / VDH breeding, with a first litter planned for summer 2027.',
+  heroEyebrow: 'Dalmatian kennel · Hanau',
+  heroTitle: ['A new chapter', 'in black & white.'],
+  heroText: 'Schnüffler’s is a new Dalmatian kennel founded by Cosima Grun. At its heart is Pünktchen – friendly, calm, athletic and approved for breeding.',
+  heroLink: 'Meet Pünktchen',
+  labels: ['Born', 'Breeding', 'Gene status', 'Planned'],
+  facts: ['02 Dec 23', 'CDF / VDH', 'LUA · N/hu', 'First litter · 2027'],
+  introEyebrow: 'Schnüffler’s Dalmatians',
+  introTitle: 'Beginning with care.',
+  introText: 'After a long and thoughtful search, Cosima fulfilled her lifelong wish to share her life with a Dalmatian. In Pünktchen, she found exactly the dog she had hoped for: social, friendly, active and from breeders who take health and genetic diversity seriously.',
+  dogEyebrow: 'Bacardi Feeling Canadian Amethyst',
+  dogTitle: 'Pünktchen',
+  dogText: 'A calm dog with plenty of energy outdoors. Pünktchen loves her daily exercise in the large fields near home and spending time with other dogs.',
+  dogLink: 'View Pünktchen’s profile',
+  futureEyebrow: 'Litter plans',
+  futureTitle: 'Our first litter is planned for summer 2027.',
+  futureText: 'Planning is still at an early stage. Health, a suitable pairing and responsible preparation come first. Anyone wishing to get to know Schnüffler’s early is welcome to contact Cosima without obligation.',
+  futureLink: 'Read about our breeding plans',
+  valuesEyebrow: 'What matters to us',
+  values: [
+    ['Genetic diversity', 'LUA gene status and the careful selection of a pairing are part of responsible Dalmatian breeding for us.'],
+    ['Temperament', 'Pünktchen’s friendly, social and even-tempered nature is central to Cosima’s wish to continue her line.'],
+    ['Exercise', 'Dalmatians need dependable daily exercise and stimulation. Pünktchen runs and plays outdoors for one to two hours every day.'],
+  ],
+};
+---
+
+<BaseLayout lang={lang} page="home" title={content.title} description={content.description}>
+  <section class="hero">
+    <Image
+      src={heroImage}
+      alt={lang === 'de' ? 'Pünktchen steht auf einer Bergwiese vor weitem Alpenpanorama' : 'Pünktchen standing in a mountain meadow before a wide Alpine panorama'}
+      widths={[640, 960, 1440, 1920, 2560]}
+      sizes="100vw"
+      format="avif"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="hero-content">
+      <div>
+        <p class="eyebrow">{content.heroEyebrow}</p>
+        <h1>{content.heroTitle[0]} <span>{content.heroTitle[1]}</span></h1>
+      </div>
+      <div class="hero-side">
+        <p>{content.heroText}</p>
+        <a class="button-link" href={routes[lang].dog}>{content.heroLink}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="fact-strip" aria-label={lang === 'de' ? 'Schnelle Fakten' : 'Key facts'}>
+    {content.facts.map((fact, index) => (
+      <div>
+        <span class="fact-label">{content.labels[index]}</span>
+        <strong class={index === 0 ? 'date-mark' : ''}>{fact}</strong>
+      </div>
+    ))}
+  </section>
+
+  <section class="editorial-section shell spot-field">
+    <div class="section-index" aria-hidden="true">01</div>
+    <div class="section-copy">
+      <p class="eyebrow">{content.introEyebrow}</p>
+      <h2>{content.introTitle}</h2>
+      <p>{content.introText}</p>
+      <a class="text-link" href={routes[lang].about}>{lang === 'de' ? 'Cosima und Schnüffler’s' : 'Cosima and Schnüffler’s'}</a>
+    </div>
+  </section>
+
+  <section class="dog-feature">
+    <div class="dog-feature-image">
+      <Image
+        src={standingImage}
+        alt={lang === 'de' ? 'Pünktchen steht aufmerksam im grünen Feld' : 'Pünktchen standing attentively in a green field'}
+        widths={[640, 900, 1200]}
+        sizes="(max-width: 900px) 100vw, 55vw"
+        format="avif"
+      />
+    </div>
+    <div class="dog-feature-copy">
+      <div>
+        <p class="eyebrow">{content.dogEyebrow}</p>
+        <h2>{content.dogTitle}</h2>
+      </div>
+      <div>
+        <p>{content.dogText}</p>
+        <a class="text-link" href={routes[lang].dog}>{content.dogLink}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="future-band">
+    <div class="future-copy">
+      <p class="eyebrow" style="color: currentColor">{content.futureEyebrow}</p>
+      <h2>{content.futureTitle}</h2>
+      <p>{content.futureText}</p>
+      <a class="text-link" href={routes[lang].breeding}>{content.futureLink}</a>
+    </div>
+    <div class="future-year" aria-label="2027">2027</div>
+  </section>
+
+  <section>
+    <div class="shell" style="padding-top: 4rem; padding-bottom: 2rem">
+      <p class="eyebrow">{content.valuesEyebrow}</p>
+    </div>
+    <div class="values-grid">
+      {content.values.map(([title, text], index) => (
+        <article class="value-card">
+          <span class="number">0{index + 1}</span>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

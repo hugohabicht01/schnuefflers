@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from './PageIntro.astro';
+import forestImage from '../assets/puenktchen-forest-profile.jpg';
+import spotsImage from '../assets/puenktchen-spots.jpg';
+import { routes, type Lang } from '../data/site';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = lang === 'de' ? {
+  title: 'Zucht & A-Wurf 2027 | Schnüffler’s Dalmatiner',
+  description: 'Schnüffler’s plant den ersten Dalmatinerwurf für Sommer 2027. Erfahren Sie mehr über Cosimas Schwerpunkte: Gesundheit, Wesen, Bewegung und genetische Vielfalt.',
+  eyebrow: 'Zucht im CDF / VDH',
+  heading: 'Sorgfalt vor Tempo.',
+  lead: 'Der erste Wurf von Schnüffler’s ist für den Sommer 2027 geplant. Bis dahin zählt jeder Schritt der Vorbereitung.',
+  planEyebrow: 'A-Wurf · Sommer 2027',
+  planTitle: 'Eine Planung, kein Versprechen.',
+  planText: ['Zucht lässt sich nicht vollständig terminieren. Der Sommer 2027 ist unser angestrebter Zeitraum, sofern Gesundheit, Zyklus, tierärztliche Begleitung und eine passende Verpaarung zusammenkommen.', 'Details zum Rüden und zur konkreten Verpaarung werden erst veröffentlicht, wenn die Entscheidung fundiert getroffen und die Planung verbindlicher ist.'],
+  pillarsEyebrow: 'Unsere Schwerpunkte',
+  pillars: [
+    ['Gesundheit', 'Pünktchens bestätigte Zuchtzulassung, ihr LUA-Status und nachvollziehbare Gesundheitsinformationen bilden die Grundlage.'],
+    ['Genetische Vielfalt', 'Eine Verpaarung soll nicht nur äußerlich passen. Abstammung und genetische Vielfalt werden bewusst in die Entscheidung einbezogen.'],
+    ['Wesen', 'Freundlichkeit, Sozialverhalten und ein ausgeglichenes Leben im Alltag sind für Cosima ebenso wichtig wie das Erscheinungsbild.'],
+  ],
+  exerciseTitle: 'Ein sportlicher Hund braucht einen passenden Alltag.',
+  exerciseText: ['Dalmatiner sind aktive, ausdauernde Hunde. Ohne ausreichende Bewegung und Beschäftigung können sie unausgeglichen werden. Pünktchen bekommt täglich ein bis zwei Stunden Bewegung im Feld und regelmäßigen Kontakt zu anderen Hunden.', 'Diese Erfahrung prägt Cosimas Vorstellung davon, was ein gutes Zuhause für einen Dalmatiner leisten sollte: verlässliche Zeit, Freude an Bewegung und echtes Interesse an einem sozialen Familienhund.'],
+  interestTitle: 'Interesse am A-Wurf?',
+  interestText: 'Früher Kontakt ist willkommen. Ein Kennenlernen ist unverbindlich und dient dazu, Erwartungen, Alltag und die Bedürfnisse eines Dalmatiners offen zu besprechen.',
+  interestLink: 'Kontakt aufnehmen',
+} : {
+  title: 'Breeding & first litter 2027 | Schnüffler’s Dalmatians',
+  description: 'Schnüffler’s plans its first Dalmatian litter for summer 2027. Read about Cosima’s priorities: health, temperament, exercise and genetic diversity.',
+  eyebrow: 'Breeding within CDF / VDH',
+  heading: 'Care before speed.',
+  lead: 'Schnüffler’s first litter is planned for summer 2027. Until then, every step of the preparation matters.',
+  planEyebrow: 'First litter · Summer 2027',
+  planTitle: 'A plan, not a promise.',
+  planText: ['Breeding cannot be scheduled with complete certainty. Summer 2027 is our intended timeframe, provided that health, Pünktchen’s cycle, veterinary guidance and a suitable pairing all align.', 'Details of the sire and the specific pairing will be published only when the decision has been carefully made and the plan is more definite.'],
+  pillarsEyebrow: 'Our priorities',
+  pillars: [
+    ['Health', 'Pünktchen’s confirmed breeding approval, her LUA status and transparent health information provide the foundation.'],
+    ['Genetic diversity', 'A pairing must offer more than appearance. Pedigree and genetic diversity will be deliberately considered in the decision.'],
+    ['Temperament', 'Friendliness, sociability and a balanced everyday life matter to Cosima just as much as appearance.'],
+  ],
+  exerciseTitle: 'An athletic dog needs the right daily life.',
+  exerciseText: ['Dalmatians are active and enduring dogs. Without sufficient exercise and stimulation, they can become unsettled. Pünktchen gets one to two hours of exercise in the fields every day and regularly spends time with other dogs.', 'This experience shapes Cosima’s idea of a suitable Dalmatian home: dependable time, a genuine enjoyment of exercise and real interest in a social family dog.'],
+  interestTitle: 'Interested in the first litter?',
+  interestText: 'Early contact is welcome. An initial conversation is without obligation and offers a chance to discuss expectations, daily life and the needs of a Dalmatian openly.',
+  interestLink: 'Get in touch',
+};
+---
+
+<BaseLayout lang={lang} page="breeding" title={c.title} description={c.description}>
+  <PageIntro number="04" eyebrow={c.eyebrow} title={c.heading} lead={c.lead} />
+
+  <section class="future-band">
+    <div class="future-copy">
+      <p class="eyebrow" style="color: currentColor">{c.planEyebrow}</p>
+      <h2>{c.planTitle}</h2>
+      {c.planText.map((p) => <p>{p}</p>)}
+    </div>
+    <div class="future-year" aria-label="2027">2027</div>
+  </section>
+
+  <section>
+    <div class="shell" style="padding-top: 4rem; padding-bottom: 2rem"><p class="eyebrow">{c.pillarsEyebrow}</p></div>
+    <div class="values-grid">
+      {c.pillars.map(([title, text], index) => <article class="value-card"><span class="number">0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}
+    </div>
+  </section>
+
+  <section class="dog-feature">
+    <div class="dog-feature-image">
+      <Image src={forestImage} alt={lang === 'de' ? 'Pünktchen mit aufmerksamem Blick im Wald' : 'Pünktchen looking attentively in the woods'} widths={[640, 900, 1200]} sizes="(max-width: 900px) 100vw, 55vw" format="avif" />
+    </div>
+    <div class="dog-feature-copy">
+      <h2>{c.exerciseTitle}</h2>
+      <div>{c.exerciseText.map((p) => <p>{p}</p>)}</div>
+    </div>
+  </section>
+
+  <section class="profile-grid">
+    <div class="profile-image">
+      <Image src={spotsImage} alt={lang === 'de' ? 'Pünktchens Fell vor einem gepunkteten Hintergrund' : 'Pünktchen’s coat against a spotted background'} widths={[640, 960, 1440]} sizes="(max-width: 900px) 100vw, 60vw" format="avif" />
+    </div>
+    <div class="dog-feature-copy">
+      <div><p class="eyebrow">{lang === 'de' ? 'Unverbindliches Kennenlernen' : 'An initial conversation'}</p><h2>{c.interestTitle}</h2></div>
+      <div><p>{c.interestText}</p><a class="button-link" href={routes[lang].contact}>{c.interestLink}</a></div>
+    </div>
+  </section>
+</BaseLayout>

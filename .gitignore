@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+.playwright-cli/
+output/
+
+# Private source photography; sanitized copies live in src/assets.
+/*.jpg
+/*.jpeg
+/*.png

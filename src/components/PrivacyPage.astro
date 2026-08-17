@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, type Lang } from '../data/site';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+
+{lang === 'de' ? (
+  <BaseLayout lang="de" page="privacy" title="Datenschutz | Schnüffler’s Dalmatiner" description="Datenschutzerklärung von Schnüffler’s Dalmatiner. Informationen zu Hosting, E-Mail-Kontakt und externen Links.">
+    <div class="legal-wrap shell">
+      <h1>Datenschutz</h1>
+      <div class="legal-copy">
+        <p><strong>Stand: August 2026</strong></p>
+
+        <h2>1. Verantwortliche</h2>
+        <address>
+          {site.owner}<br />
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}<br />
+          E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a>
+        </address>
+
+        <h2>2. Grundsatz</h2>
+        <p>Diese Website verwendet keine Analyse- oder Marketingdienste, keine eingebetteten Social-Media-Inhalte, keine extern geladenen Schriftarten und keine nicht technisch erforderlichen Cookies.</p>
+
+        <h2>3. Hosting über GitHub Pages</h2>
+        <p>Diese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf einer GitHub-Pages-Website wird die IP-Adresse des zugreifenden Geräts nach Angaben von GitHub zu Sicherheitszwecken protokolliert und gespeichert. Dabei können weitere technische Verbindungsdaten verarbeitet werden.</p>
+        <p>Die Verarbeitung erfolgt zur sicheren, stabilen und effizienten Bereitstellung der Website auf Grundlage unseres berechtigten Interesses gemäß Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen finden Sie in der <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Datenschutzerklärung von GitHub</a>.</p>
+
+        <h2>4. Kontakt per E-Mail</h2>
+        <p>Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir die von Ihnen übermittelten Angaben, um Ihre Anfrage zu beantworten. Rechtsgrundlage ist je nach Inhalt Art. 6 Abs. 1 lit. b DSGVO für vorvertragliche Kommunikation oder Art. 6 Abs. 1 lit. f DSGVO für sonstige Anfragen. Die Daten werden gelöscht, sobald die Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+
+        <h2>5. Instagram und externe Links</h2>
+        <p>Instagram ist auf dieser Website nicht eingebettet. Erst wenn Sie dem externen Link folgen, wird eine Verbindung zu Instagram hergestellt. Für die dann erfolgende Datenverarbeitung ist der jeweilige externe Anbieter verantwortlich.</p>
+
+        <h2>6. Ihre Rechte</h2>
+        <p>Unter den gesetzlichen Voraussetzungen haben Sie insbesondere das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Außerdem besteht ein Beschwerderecht bei einer Datenschutzaufsichtsbehörde. In Hessen ist dies der <a href="https://datenschutz.hessen.de/" target="_blank" rel="noopener">Hessische Beauftragte für Datenschutz und Informationsfreiheit</a>.</p>
+      </div>
+    </div>
+  </BaseLayout>
+) : (
+  <BaseLayout lang="en" page="privacy" title="Privacy | Schnüffler’s Dalmatians" description="Privacy information for Schnüffler’s Dalmatians, including hosting, email contact and external links.">
+    <div class="legal-wrap shell">
+      <h1>Privacy</h1>
+      <div class="legal-copy">
+        <p><strong>Last updated: August 2026</strong></p>
+
+        <h2>1. Controller</h2>
+        <address>
+          {site.owner}<br />
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}<br />
+          Email: <a href={`mailto:${site.email}`}>{site.email}</a>
+        </address>
+
+        <h2>2. Our approach</h2>
+        <p>This website uses no analytics or marketing services, no embedded social-media content, no externally loaded fonts and no non-essential cookies.</p>
+
+        <h2>3. Hosting with GitHub Pages</h2>
+        <p>This website is delivered through GitHub Pages, a service of GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. According to GitHub, the visitor’s IP address is logged and stored for security purposes when a GitHub Pages site is accessed. Other technical connection data may also be processed.</p>
+        <p>Processing is based on our legitimate interest in providing a secure, stable and efficient website under Article 6(1)(f) GDPR. Further information is available in the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</p>
+
+        <h2>4. Contact by email</h2>
+        <p>If you contact us by email, we process the information you provide in order to respond. Depending on the request, the legal basis is Article 6(1)(b) GDPR for pre-contractual communication or Article 6(1)(f) GDPR for other enquiries. The information is deleted once the request has been concluded unless statutory retention duties apply.</p>
+
+        <h2>5. Instagram and external links</h2>
+        <p>Instagram is not embedded in this website. A connection to Instagram is made only when you choose to follow the external link. The external provider is responsible for any subsequent processing.</p>
+
+        <h2>6. Your rights</h2>
+        <p>Subject to the statutory conditions, you have rights including access, rectification, erasure, restriction, data portability and objection. You also have the right to lodge a complaint with a data-protection supervisory authority. The relevant authority in Hesse is the <a href="https://datenschutz.hessen.de/" target="_blank" rel="noopener">Hessian Commissioner for Data Protection and Freedom of Information</a>.</p>
+      </div>
+    </div>
+  </BaseLayout>
+)}

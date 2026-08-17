@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from './PageIntro.astro';
+import { site, type Lang } from '../data/site';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = lang === 'de' ? {
+  title: 'Kontakt | Schnüffler’s Dalmatiner Hanau',
+  description: 'Kontakt zu Cosima Grun und Schnüffler’s Dalmatiner in Hanau. Fragen zu Pünktchen oder zum geplanten A-Wurf im Sommer 2027 sind willkommen.',
+  eyebrow: 'Kontakt',
+  heading: 'Lernen wir uns kennen.',
+  lead: 'Fragen zu Pünktchen, Schnüffler’s oder dem geplanten A-Wurf im Sommer 2027 beantwortet Cosima gern persönlich.',
+  emailTitle: 'Schreiben Sie uns.',
+  emailText: 'Am einfachsten erreichen Sie Cosima per E-Mail. Bitte erzählen Sie gern ein wenig von sich und davon, warum Sie sich für einen Dalmatiner interessieren.',
+  instaTitle: 'Pünktchens Alltag.',
+  instaText: 'Auf Instagram gibt es laufend neue Einblicke in Spaziergänge, Training, Ausflüge und das tägliche Leben mit Pünktchen.',
+  addressTitle: 'Schnüffler’s in Hanau.',
+  addressText: 'Persönliche Besuche finden nur nach vorheriger Absprache statt.',
+  external: 'Instagram öffnen',
+} : {
+  title: 'Contact | Schnüffler’s Dalmatians Hanau',
+  description: 'Contact Cosima Grun and Schnüffler’s Dalmatians in Hanau, Germany. Questions about Pünktchen or the planned first litter in summer 2027 are welcome.',
+  eyebrow: 'Contact',
+  heading: 'Let’s get to know each other.',
+  lead: 'Cosima is happy to answer questions about Pünktchen, Schnüffler’s or the first litter planned for summer 2027.',
+  emailTitle: 'Write to us.',
+  emailText: 'Email is the easiest way to reach Cosima. You are welcome to share a little about yourself and why you are interested in a Dalmatian.',
+  instaTitle: 'Pünktchen’s everyday life.',
+  instaText: 'Instagram offers regular glimpses of Pünktchen’s walks, training, outings and daily life.',
+  addressTitle: 'Schnüffler’s in Hanau.',
+  addressText: 'Personal visits are by prior arrangement only.',
+  external: 'Open Instagram',
+};
+---
+
+<BaseLayout lang={lang} page="contact" title={c.title} description={c.description}>
+  <PageIntro number="05" eyebrow={c.eyebrow} title={c.heading} lead={c.lead} />
+  <section class="contact-grid">
+    <div class="contact-panel">
+      <p class="eyebrow">E-Mail</p>
+      <h2>{c.emailTitle}</h2>
+      <p>{c.emailText}</p>
+      <a class="contact-link" href={`mailto:${site.email}`}>{site.email}</a>
+    </div>
+    <div class="contact-panel">
+      <p class="eyebrow">Instagram</p>
+      <h2>{c.instaTitle}</h2>
+      <p>{c.instaText}</p>
+      <a class="contact-link" href={site.instagram} target="_blank" rel="me noopener">@miss_pointfluencer</a>
+      <span class="fact-label">{c.external}</span>
+    </div>
+  </section>
+  <section class="body-grid shell">
+    <h2>{c.addressTitle}</h2>
+    <div class="body-copy">
+      <p>{c.addressText}</p>
+      <address style="font-style: normal; font-size: 1.25rem">
+        {site.owner}<br />
+        {site.address.street}<br />
+        {site.address.postalCode} {site.address.city}<br />
+        {site.address.country}
+      </address>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageIntro from './PageIntro.astro';
+import runningImage from '../assets/puenktchen-running.jpg';
+import forestImage from '../assets/puenktchen-forest.jpg';
+import { routes, type Lang } from '../data/site';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = lang === 'de' ? {
+  title: 'Cosima & Schnüffler’s | Dalmatinerzucht Hanau',
+  description: 'Erfahren Sie, wie Cosima Grun und ihre Dalmatinerhündin Pünktchen den Grundstein für Schnüffler’s Dalmatiner in Hanau gelegt haben.',
+  eyebrow: 'Cosima & Schnüffler’s',
+  heading: 'Ein Lebenstraum auf vier Pfoten.',
+  lead: 'Cosima wollte schon ihr ganzes Leben einen Dalmatiner. Aus diesem Wunsch entstand nach sorgfältiger Vorbereitung Schnüffler’s Dalmatiner.',
+  searchTitle: 'Die lange Suche nach dem richtigen Hund.',
+  searchText: ['Cosima wollte ihre Entscheidung nicht überstürzen. Sie suchte lange nach Züchtern, deren Vorstellungen zu ihren eigenen passten: freundliche, alltagstaugliche Dalmatiner, eine bewusste Zuchtplanung, genetische Vielfalt und das LUA-Gen.', 'Bei der Zuchtstätte Bacardi Feeling fand sie diese Haltung – und schließlich Pünktchen. Aus Bacardi Feeling Canadian Amethyst wurde ein fester Mittelpunkt ihres Lebens.'],
+  whyTitle: 'Warum züchten?',
+  whyText: ['Pünktchen ist freundlich zu Menschen und anderen Hunden, zu Hause angenehm ruhig und draußen begeistert aktiv. Für Cosima vereint sie genau die Eigenschaften, die sie am Dalmatiner schätzt.', 'Mit Schnüffler’s möchte Cosima diese Linie mit Sorgfalt fortführen. Der Wunsch zu züchten beruht nicht allein auf Pünktchens Erscheinungsbild, sondern ebenso auf ihrem Wesen, ihrer Gesundheit und ihrer sozialen Art.'],
+  homeTitle: 'Zu Hause in Hanau.',
+  homeText: 'Zum Alltag gehören die großen Felder in der Umgebung, tägliche Bewegung und Kontakte zu anderen Hunden. Hier zeigt sich Pünktchens Balance: konzentriert und ruhig im Haus, ausdauernd und lebensfroh draußen.',
+  cta: 'Unsere Zuchtgedanken',
+} : {
+  title: 'Cosima & Schnüffler’s | Dalmatian breeder in Hanau',
+  description: 'Discover how Cosima Grun and her Dalmatian Pünktchen laid the foundation for Schnüffler’s Dalmatians in Hanau, Germany.',
+  eyebrow: 'Cosima & Schnüffler’s',
+  heading: 'A lifelong dream on four paws.',
+  lead: 'Cosima had wanted a Dalmatian for as long as she could remember. Careful preparation turned that wish into Schnüffler’s Dalmatians.',
+  searchTitle: 'A long search for the right dog.',
+  searchText: ['Cosima did not want to rush her decision. She searched carefully for breeders whose priorities matched her own: friendly Dalmatians suited to everyday life, thoughtful breeding decisions, genetic diversity and the LUA gene.', 'She found that approach at Bacardi Feeling – and ultimately found Pünktchen. Bacardi Feeling Canadian Amethyst soon became a central part of her life.'],
+  whyTitle: 'Why breed?',
+  whyText: ['Pünktchen is friendly with people and other dogs, pleasantly calm at home and enthusiastically active outdoors. For Cosima, she brings together the qualities she values in a Dalmatian.', 'Through Schnüffler’s, Cosima hopes to continue this line with care. The wish to breed rests not only on Pünktchen’s appearance, but equally on her temperament, health and sociable nature.'],
+  homeTitle: 'At home in Hanau.',
+  homeText: 'Daily life includes the wide local fields, dependable exercise and time with other dogs. This is where Pünktchen’s balance is clearest: focused and calm indoors, enduring and joyful outside.',
+  cta: 'Our breeding approach',
+};
+---
+
+<BaseLayout lang={lang} page="about" title={c.title} description={c.description}>
+  <PageIntro number="03" eyebrow={c.eyebrow} title={c.heading} lead={c.lead} />
+
+  <section class="profile-grid">
+    <div class="profile-image">
+      <Image src={runningImage} alt={lang === 'de' ? 'Pünktchen läuft Cosima auf einem Feldweg entgegen' : 'Pünktchen running towards Cosima on a country path'} widths={[640, 960, 1440, 1920]} sizes="(max-width: 900px) 100vw, 60vw" format="avif" />
+    </div>
+    <div class="dog-feature-copy">
+      <div><p class="eyebrow">Hanau · Hessen</p><h2>{c.homeTitle}</h2></div>
+      <p>{c.homeText}</p>
+    </div>
+  </section>
+
+  <section class="body-grid shell">
+    <h2>{c.searchTitle}</h2>
+    <div class="body-copy">{c.searchText.map((p) => <p>{p}</p>)}</div>
+  </section>
+
+  <section class="dog-feature">
+    <div class="dog-feature-image">
+      <Image src={forestImage} alt={lang === 'de' ? 'Porträt von Pünktchen im Wald' : 'Portrait of Pünktchen in the woods'} widths={[640, 900, 1200]} sizes="(max-width: 900px) 100vw, 55vw" format="avif" />
+    </div>
+    <div class="dog-feature-copy">
+      <h2>{c.whyTitle}</h2>
+      <div>
+        {c.whyText.map((p) => <p>{p}</p>)}
+        <a class="text-link" href={routes[lang].breeding}>{c.cta}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site, type Lang } from '../data/site';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+---
+
+{lang === 'de' ? (
+  <BaseLayout lang="de" page="legal" title="Impressum | Schnüffler’s Dalmatiner" description="Impressum und Anbieterkennzeichnung von Schnüffler’s Dalmatiner, Cosima Grun, Hanau.">
+    <div class="legal-wrap shell">
+      <h1>Impressum</h1>
+      <div class="legal-copy">
+        <h2>Angaben gemäß § 5 DDG</h2>
+        <address>
+          <strong>{site.owner}</strong><br />
+          Schnüffler’s Dalmatiner<br />
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}<br />
+          {site.address.country}
+        </address>
+
+        <h2>Kontakt</h2>
+        <p>E-Mail: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+
+        <h2>Verantwortlich für den Inhalt</h2>
+        <address>
+          {site.owner}<br />
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}
+        </address>
+
+        <h2>Haftung für Inhalte</h2>
+        <p>Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität kann dennoch keine Gewähr übernommen werden. Gesetzliche Verpflichtungen zur Entfernung oder Sperrung von Informationen bleiben unberührt.</p>
+
+        <h2>Haftung für Links</h2>
+        <p>Diese Website enthält Links zu externen Websites, auf deren Inhalte kein Einfluss besteht. Für diese fremden Inhalte ist stets der jeweilige Anbieter verantwortlich. Zum Zeitpunkt der Verlinkung waren keine Rechtsverstöße erkennbar. Bei Bekanntwerden von Rechtsverletzungen werden entsprechende Links entfernt.</p>
+
+        <h2>Urheberrecht</h2>
+        <p>Texte, Fotografien, Logo und Gestaltung dieser Website unterliegen dem Urheberrecht. Eine Verwendung außerhalb der gesetzlichen Grenzen bedarf der vorherigen Zustimmung der jeweiligen Rechteinhaberin.</p>
+      </div>
+    </div>
+  </BaseLayout>
+) : (
+  <BaseLayout lang="en" page="legal" title="Legal notice | Schnüffler’s Dalmatians" description="Legal notice and provider details for Schnüffler’s Dalmatians, Cosima Grun, Hanau, Germany.">
+    <div class="legal-wrap shell">
+      <h1>Legal notice</h1>
+      <div class="legal-copy">
+        <h2>Provider information</h2>
+        <address>
+          <strong>{site.owner}</strong><br />
+          Schnüffler’s Dalmatians<br />
+          {site.address.street}<br />
+          {site.address.postalCode} {site.address.city}<br />
+          Germany
+        </address>
+
+        <h2>Contact</h2>
+        <p>Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+
+        <h2>Responsible for content</h2>
+        <address>{site.owner}<br />{site.address.street}<br />{site.address.postalCode} {site.address.city}</address>
+
+        <h2>Liability for content</h2>
+        <p>The content of this website has been prepared with care. Nevertheless, no guarantee can be given for its accuracy, completeness or currency. Statutory obligations to remove or block information remain unaffected.</p>
+
+        <h2>External links</h2>
+        <p>This website links to external websites whose content is outside our control. The respective provider is responsible for that content. No legal violations were apparent when the links were created. Links will be removed if we become aware of an infringement.</p>
+
+        <h2>Copyright</h2>
+        <p>The text, photography, logo and design of this website are protected by copyright. Use beyond statutory limits requires prior permission from the relevant rights holder.</p>
+      </div>
+    </div>
+  </BaseLayout>
+)}

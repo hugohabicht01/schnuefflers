@@ -1,0 +1,39 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/schnuefflers-logo.png';
+import { alternateLang, routes, ui, type Lang, type PageKey } from '../data/site';
+
+interface Props {
+  lang: Lang;
+  page: PageKey;
+}
+
+const { lang, page } = Astro.props;
+const copy = ui[lang];
+const otherLang = alternateLang(lang);
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href={routes[lang].home} aria-label="Schnüffler’s Dalmatiner">
+      <Image src={logo} alt="" width={136} densities={[1, 2]} format="webp" />
+    </a>
+
+    <nav class="desktop-nav" aria-label={lang === 'de' ? 'Hauptnavigation' : 'Main navigation'}>
+      {copy.nav.map(([key, label]) => (
+        <a href={routes[lang][key]} aria-current={page === key ? 'page' : undefined}>{label}</a>
+      ))}
+      <a class="language-link" href={routes[otherLang][page]} lang={otherLang}>{copy.language}</a>
+    </nav>
+
+    <details class="mobile-nav">
+      <summary>{copy.menu}</summary>
+      <nav aria-label={lang === 'de' ? 'Mobile Navigation' : 'Mobile navigation'}>
+        {copy.nav.map(([key, label]) => (
+          <a href={routes[lang][key]} aria-current={page === key ? 'page' : undefined}>{label}</a>
+        ))}
+        <a href={routes[otherLang][page]} lang={otherLang}>{copy.language}</a>
+      </nav>
+    </details>
+  </div>
+</header>
