@@ -11,12 +11,24 @@ import { type Lang } from '../data/site';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
+
+const links = {
+  pedigree: 'https://dogs.pedigreeonline.com/bacardi-feeling-canadian-amethyst-lua-VWZtUmeG/pedigree',
+  cLitter: 'https://www.bacardi-feeling.de/zucht-1/c-wurf/',
+  cdf: 'https://cdf-dalmatinerverein.de/',
+  lua: 'https://cdf-dalmatinerverein.de/lua-zuchtprogramm/',
+  plate: 'https://cdf-dalmatinerverein.de/plattenzuchtprogramm/',
+  berta: 'https://dogs.pedigreeonline.com/oesels-bezaubernde-berta-Cf31AOUx/pedigree',
+  onyx: 'https://www.dalmatianstuddogs.com/stud-dogs/canada/spavinaw-ck-hear-ur-make-nn-waves-echoview/',
+  copper: 'https://www.bacardi-feeling.de/unsere-hunde/bacardi-feeling-canadian-copper/',
+};
+
 const c = lang === 'de' ? {
-  title: 'Pünktchen | Schnüffler’s Dalmatiner',
-  description: 'Alles über Pünktchen, offiziell Bacardi Feeling Canadian Amethyst: LUA-Dalmatinerhündin, geboren am 2. Dezember 2023 und zur Zucht zugelassen.',
-  eyebrow: 'Unsere Hündin',
+  title: 'Pünktchen | LUA-Dalmatinerhündin von Schnüffler’s',
+  description: 'Meine Dalmatinerhündin Pünktchen, offiziell Bacardi Feeling Canadian Amethyst: Wesen, Abstammung, Gesundheit, genetische Diversität und Zuchtzulassung.',
+  eyebrow: 'Meine Hündin',
   heading: 'Pünktchen',
-  lead: 'Bacardi Feeling Canadian Amethyst ist der Mittelpunkt von Schnüffler’s: eine freundliche, soziale und ausgeglichene LUA-Dalmatinerhündin.',
+  lead: 'Pünktchen hat nicht nur ganz viele Punkte, sondern heißt auch so. Für mich ist sie der perfekte Hund – freundlich, lustig, sportlich und zu Hause wunderbar entspannt.',
   factsTitle: 'Steckbrief',
   facts: [
     ['Zuchtname', 'Bacardi Feeling Canadian Amethyst'],
@@ -30,20 +42,50 @@ const c = lang === 'de' ? {
     ['Mutter', 'Oesel’s Bezaubernde Berta'],
     ['Vater', 'Spavinaw CK Hear UR Make NN Waves @ Echoview'],
   ],
-  natureTitle: 'Ruhig zu Hause. Voller Energie draußen.',
-  natureText: ['Pünktchen ist unglaublich freundlich und sozial. Im Haus ist sie ruhig und ausgeglichen; draußen zeigt sie, wie viel Bewegung in einem Dalmatiner steckt.', 'Jeden Tag verbringt sie ein bis zwei Stunden auf den großen Feldern bei ihrem Zuhause. Dort kann sie laufen, spielen und andere Hunde treffen. Für Cosima ist diese tägliche Bewegung kein Extra, sondern ein wesentlicher Teil eines guten Dalmatinerlebens.'],
-  approvalTitle: 'Zuchtzulassung',
-  approvalText: 'Pünktchen hat ihre Zuchtzulassung im CDF / VDH erhalten. Ihre freundliche Art, ihre Gesundheit und ihr Erscheinungsbild haben Cosima darin bestärkt, ihre Linie verantwortungsvoll fortführen zu wollen.',
-  pedigree: 'Pedigree ansehen',
-  breeder: 'Zur Zuchtstätte Bacardi Feeling',
+  originTitle: 'Woher sie kommt.',
+  characterTitle: 'Offen, freundlich und ziemlich lustig.',
+  characterText: [
+    'Pünktchen hat genau wie ihre Mama ein aufgeschlossenes, freundliches Wesen. Sie liebt Kinder und überhaupt alle Menschen, die sie manchmal mit ihrem unnachahmlichen Dalmatinerlächeln angrinst. Noch besser findet sie es, wenn man ein Leckerchen dabeihat: Pünktchen ist ultraverfressen und würde dafür fast die halbe Pfote hergeben.',
+    'Fremde Hunde inspiziert sie furchtlos und freundlich und hält sich aus Streitereien normalerweise heraus. Draußen ist sie ein lauffreudiger Feger und für Rennduelle mit ihren Ridgeback- und Barzoifreunden immer zu haben. Dann fühlt man sich manchmal wie auf einer Rennbahn inmitten der Galopper des Jahres.',
+    'Beim Spielen ist sie übermütig und schlägt Purzelbäume am laufenden Meter, um ihre Hundefreunde zu beeindrucken. Gleichzeitig ist sie sehr sozial und geht äußerst liebevoll mit Welpen und Junghunden um. Auch deshalb glaube ich, dass sie eine wunderbare Mutterhündin für unseren A-Wurf werden kann.',
+  ],
+  homeTitle: 'Zu Hause ganz entspannt.',
+  homeText: [
+    'Zu Hause ist Pünktchen ruhig und ziemlich faul. Sie kann stundenlang auf dem Teppich chillen, bis wieder Action angesagt ist. Sie liebt Schnüffel- und Suchspiele, meldet Besuch deutlich und bewacht unser Haus, ohne in dauerhaftes Kläffen zu verfallen.',
+    'Was sie gar nicht mag, ist Wasser – besonders wenn es von oben kommt. Regenspaziergänge sind nicht ihr Ding und werden so gut es geht vermieden. Notfalls schickt sie Frauchen einfach allein los.',
+  ],
+  healthEyebrow: 'Gesundheit & Zucht',
+  healthTitle: 'Transparent dokumentiert.',
+  healthLead: 'Gesundheit, nachvollziehbare Untersuchungsergebnisse und genetische Vielfalt sind für mich die Grundlage jeder Zuchtentscheidung.',
+  health: [
+    ['LUA', 'N/hu · mischerbig'],
+    ['Farbgenetik', 'Bb/EE · mischerbig, lemonfrei'],
+    ['PRKG2 / disproportionaler Zwergwuchs', 'frei'],
+    ['ARDS', 'frei'],
+    ['LSD', 'frei'],
+    ['DNA', 'DNA-Profil liegt vor'],
+    ['Gebiss', 'vollzahnig · korrektes Scherengebiss'],
+    ['HD / ED', 'HD B · ED 0'],
+    ['Pigmentierung', 'Innenohrplatte rechts'],
+    ['Zuchtzulassung', '08.08.2026 · Auflage: Verpaarung mit HD A oder B'],
+  ],
+  diversityTitle: 'Genetische Diversität',
+  diversity: [
+    ['8-Generationen-COI', '0,0084 %'],
+    ['Einzigartige Vorfahren in 9 Generationen', '592 / 1023 · 57,87 %'],
+    ['Einzigartige Vorfahren in Generation 9', '324 / 512 · 63,28 %'],
+  ],
+  plateTitle: 'Teil des Plattenzuchtprogramms.',
+  pedigree: 'Pünktchens Pedigree',
+  breeder: 'Der C-Wurf bei Bacardi Feeling',
   gallery: 'Pünktchen im Alltag',
   captions: ['Aufmerksam und gelassen', 'Unterwegs im Wald', 'Bewegung gehört jeden Tag dazu', 'Auch ruhige Momente dürfen verspielt sein'],
 } : {
-  title: 'Pünktchen | Schnüffler’s Dalmatians',
-  description: 'Meet Pünktchen, officially Bacardi Feeling Canadian Amethyst: an LUA Dalmatian born on 2 December 2023 and approved for breeding.',
-  eyebrow: 'Our Dalmatian',
+  title: 'Pünktchen | Schnüffler’s LUA Dalmatian',
+  description: 'My Dalmatian Pünktchen, officially Bacardi Feeling Canadian Amethyst: temperament, pedigree, health, genetic diversity and breeding approval.',
+  eyebrow: 'My Dalmatian',
   heading: 'Pünktchen',
-  lead: 'Bacardi Feeling Canadian Amethyst is at the heart of Schnüffler’s: a friendly, social and even-tempered LUA Dalmatian.',
+  lead: 'Pünktchen not only has lots of spots—her name also means “little spot”. To me, she is the perfect dog: friendly, funny, athletic and wonderfully relaxed at home.',
   factsTitle: 'Profile',
   facts: [
     ['Registered name', 'Bacardi Feeling Canadian Amethyst'],
@@ -57,12 +99,42 @@ const c = lang === 'de' ? {
     ['Dam', 'Oesel’s Bezaubernde Berta'],
     ['Sire', 'Spavinaw CK Hear UR Make NN Waves @ Echoview'],
   ],
-  natureTitle: 'Calm at home. Full of energy outdoors.',
-  natureText: ['Pünktchen is exceptionally friendly and social. She is calm and settled at home; outside, she shows just how much movement a Dalmatian needs.', 'Every day she spends one to two hours in the large fields near home, where she can run, play and meet other dogs. For Cosima, this daily exercise is not an optional extra but an essential part of a good life for a Dalmatian.'],
-  approvalTitle: 'Breeding approval',
-  approvalText: 'Pünktchen has received her breeding approval within the CDF / VDH. Her friendly nature, health and appearance have strengthened Cosima’s wish to continue her line responsibly.',
-  pedigree: 'View pedigree',
-  breeder: 'Visit Bacardi Feeling',
+  originTitle: 'Where she comes from.',
+  characterTitle: 'Open, friendly and very funny.',
+  characterText: [
+    'Like her mother, Pünktchen has an open and friendly nature. She loves children and people in general, sometimes greeting them with her unmistakable Dalmatian smile. She likes them even more when they carry a treat: Pünktchen is extremely food-motivated and would almost give half a paw for one.',
+    'She inspects unfamiliar dogs fearlessly and politely and normally stays out of disagreements. Outdoors she is a keen runner and never turns down a race with her Ridgeback and Borzoi friends. At times it feels as though I am standing beside a racetrack watching the year’s finest gallopers.',
+    'She plays with joyful abandon, performing one somersault after another to impress her friends. At the same time she is highly social and exceptionally gentle with puppies and young dogs. This is one reason I believe she can become a wonderful mother to our first litter.',
+  ],
+  homeTitle: 'Completely relaxed at home.',
+  homeText: [
+    'At home Pünktchen is calm and rather lazy. She can relax on the carpet for hours until it is time for action again. She loves scent and search games, clearly announces visitors and watches over our home without becoming a persistent barker.',
+    'What she does not like is water—especially when it comes from above. Rainy walks are not her idea of fun and are avoided whenever possible. If necessary, she simply sends me out alone.',
+  ],
+  healthEyebrow: 'Health & breeding',
+  healthTitle: 'Documented transparently.',
+  healthLead: 'Health, traceable test results and genetic diversity are the foundation of every breeding decision I make.',
+  health: [
+    ['LUA', 'N/hu · heterozygous'],
+    ['Coat genetics', 'Bb/EE · heterozygous, non-carrier for lemon'],
+    ['PRKG2 / disproportionate dwarfism', 'clear'],
+    ['ARDS', 'clear'],
+    ['LSD', 'clear'],
+    ['DNA', 'DNA profile on file'],
+    ['Dentition', 'complete · correct scissor bite'],
+    ['Hips / elbows', 'HD B · ED 0'],
+    ['Pigmentation', 'right inner-ear patch'],
+    ['Breeding approval', '8 August 2026 · condition: pairing with HD A or B'],
+  ],
+  diversityTitle: 'Genetic diversity',
+  diversity: [
+    ['8-generation COI', '0.0084%'],
+    ['Unique ancestors across 9 generations', '592 / 1023 · 57.87%'],
+    ['Unique ancestors in generation 9', '324 / 512 · 63.28%'],
+  ],
+  plateTitle: 'Part of the CDF patch-breeding programme.',
+  pedigree: 'Pünktchen’s pedigree',
+  breeder: 'The C-litter at Bacardi Feeling',
   gallery: 'Everyday life with Pünktchen',
   captions: ['Attentive and composed', 'Out in the woods', 'Exercise is part of every day', 'Quiet moments can be playful too'],
 };
@@ -72,6 +144,7 @@ const gallery = [portraitImage, forestImage, runningImage, hatImage];
 
 <BaseLayout lang={lang} page="dog" title={c.title} description={c.description}>
   <PageIntro number="02" eyebrow={c.eyebrow} title={c.heading} lead={c.lead} />
+
   <section class="profile-grid">
     <div class="profile-image">
       <Image src={standingImage} alt={lang === 'de' ? 'Pünktchen im Stand auf einer Wiese' : 'Pünktchen standing in a meadow'} widths={[640, 900, 1200, 1600]} sizes="(max-width: 900px) 100vw, 60vw" format="avif" />
@@ -85,25 +158,79 @@ const gallery = [portraitImage, forestImage, runningImage, hatImage];
   </section>
 
   <section class="body-grid shell">
-    <h2>{c.natureTitle}</h2>
+    <h2>{c.originTitle}</h2>
     <div class="body-copy">
-      {c.natureText.map((paragraph) => <p>{paragraph}</p>)}
-    </div>
-  </section>
-
-  <section class="body-grid shell">
-    <h2>{c.approvalTitle}</h2>
-    <div class="body-copy">
-      <p>{c.approvalText}</p>
+      {lang === 'de' ? (
+        <Fragment>
+          <p>Unser Pünktchen stammt aus dem wunderbaren <a href={links.cLitter} target="_blank" rel="noopener">C-Wurf von Lucia Winterbergs Zuchtstätte Bacardi Feeling</a>. Als eine der prägenden Zuchtstätten im <a href={links.cdf} target="_blank" rel="noopener">CDF</a> hat Bacardi Feeling die <a href={links.lua} target="_blank" rel="noopener">LUA-Zucht</a> vorangetrieben. Dieses Ziel teile ich: Dalmatiner sollen wieder so gesund, robust und langlebig sein, wie sie es traditionell waren.</p>
+          <p>Bis auf eine haben alle von Pünktchens Wurfgeschwistern eine Zuchtzulassung erhalten – das ist außergewöhnlich. Von ihrer zauberhaften Mama <a href={links.berta} target="_blank" rel="noopener">Berta</a>, einer vielfach ausgezeichneten internationalen Champion-Hündin, und ihrem kanadischen Papa <a href={links.onyx} target="_blank" rel="noopener">Onyx</a> hat sie dank hoher genetischer Diversität eine robuste gesundheitliche Grundlage und das LUA-Gen geerbt.</p>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <p>Our Pünktchen comes from the wonderful <a href={links.cLitter} target="_blank" rel="noopener">C-litter bred by Lucia Winterberg at Bacardi Feeling</a>. As one of the influential kennels within the <a href={links.cdf} target="_blank" rel="noopener">CDF</a>, Bacardi Feeling has helped advance <a href={links.lua} target="_blank" rel="noopener">LUA breeding</a>. I share that aim: helping Dalmatians become the healthy, robust and long-lived dogs they traditionally were.</p>
+          <p>All but one of Pünktchen’s littermates have received breeding approval—an exceptional result. From her enchanting mother <a href={links.berta} target="_blank" rel="noopener">Berta</a>, a highly decorated international show champion, and her Canadian father <a href={links.onyx} target="_blank" rel="noopener">Onyx</a>, she inherited a robust health foundation, strong genetic diversity and the LUA gene.</p>
+        </Fragment>
+      )}
       <div class="link-row">
-        <a class="text-link" href="https://dogs.pedigreeonline.com/bacardi-feeling-canadian-amethyst-lua-VWZtUmeG/pedigree" target="_blank" rel="noopener">{c.pedigree}</a>
-        <a class="text-link" href="https://www.bacardi-feeling.de/zucht-1/c-wurf/" target="_blank" rel="noopener">{c.breeder}</a>
+        <a class="text-link" href={links.pedigree} target="_blank" rel="noopener">{c.pedigree}</a>
+        <a class="text-link" href={links.cLitter} target="_blank" rel="noopener">{c.breeder}</a>
       </div>
     </div>
   </section>
 
+  <section class="body-grid shell">
+    <h2>{c.characterTitle}</h2>
+    <div class="body-copy">{c.characterText.map((paragraph) => <p>{paragraph}</p>)}</div>
+  </section>
+
+  <section class="dog-feature">
+    <div class="dog-feature-image">
+      <Image src={forestImage} alt={lang === 'de' ? 'Pünktchen aufmerksam im Wald' : 'Pünktchen looking attentive in the woods'} widths={[640, 900, 1200]} sizes="(max-width: 900px) 100vw, 55vw" format="avif" />
+    </div>
+    <div class="dog-feature-copy story-copy">
+      <h2>{c.homeTitle}</h2>
+      <div>{c.homeText.map((paragraph) => <p>{paragraph}</p>)}</div>
+    </div>
+  </section>
+
+  <section class="health-section shell">
+    <div class="health-heading">
+      <p class="eyebrow">{c.healthEyebrow}</p>
+      <h2>{c.healthTitle}</h2>
+      <p>{c.healthLead}</p>
+    </div>
+    <div class="health-content">
+      <dl class="health-list">
+        {c.health.map(([term, detail]) => <div><dt>{term}</dt><dd>{detail}</dd></div>)}
+      </dl>
+      <aside class="diversity-panel">
+        <h3>{c.diversityTitle}</h3>
+        <dl>
+          {c.diversity.map(([term, detail]) => <div><dt>{term}</dt><dd>{detail}</dd></div>)}
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="body-grid shell">
+    <h2>{c.plateTitle}</h2>
+    <div class="body-copy">
+      {lang === 'de' ? (
+        <Fragment>
+          <p>Pünktchen soll die Mutter unseres geplanten A-Wurfes werden, voraussichtlich im Sommer 2027. Sie hat eine nicht sichtbare Innenohrplatte, also einen bereits bei der Geburt vorhandenen schwarzen Farbfleck im rechten Ohr.</p>
+          <p>Wie ihr Bruder <a href={links.copper} target="_blank" rel="noopener">Copper</a> ist sie Teil des <a href={links.plate} target="_blank" rel="noopener">Plattenzuchtprogramms im CDF</a>. In diesem langfristigen Programm untersucht der CDF, ob eine stärkere Pigmentierung im Kopf- und Ohrenbereich der Elterntiere die Wahrscheinlichkeit taub geborener Welpen beim Dalmatiner senken kann.</p>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <p>Pünktchen is intended to be the mother of our first litter, planned for summer 2027. She has an invisible inner-ear patch: a black area of pigment in her right ear that was present at birth.</p>
+          <p>Like her brother <a href={links.copper} target="_blank" rel="noopener">Copper</a>, she is part of the <a href={links.plate} target="_blank" rel="noopener">CDF patch-breeding programme</a>. Through this long-term programme, the CDF is studying whether stronger pigmentation around the head and ears of parent dogs can reduce the likelihood of Dalmatian puppies being born deaf.</p>
+        </Fragment>
+      )}
+    </div>
+  </section>
+
   <section aria-labelledby="gallery-heading">
-    <div class="shell" style="padding-top: 4rem; padding-bottom: 2rem"><p class="eyebrow" id="gallery-heading">{c.gallery}</p></div>
+    <div class="shell gallery-heading"><p class="eyebrow" id="gallery-heading">{c.gallery}</p></div>
     <div class="gallery-grid">
       {gallery.map((image, index) => (
         <figure class={index < 2 ? 'portrait' : ''}>

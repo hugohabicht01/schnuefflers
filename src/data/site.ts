@@ -33,7 +33,7 @@ export const ui = {
   de: {
     nav: [
       ['dog', 'Pünktchen'],
-      ['about', 'Über uns'],
+      ['about', 'Über mich'],
       ['breeding', 'Zucht'],
       ['contact', 'Kontakt'],
     ] as [PageKey, string][],
@@ -49,7 +49,7 @@ export const ui = {
   en: {
     nav: [
       ['dog', 'Pünktchen'],
-      ['about', 'About us'],
+      ['about', 'About me'],
       ['breeding', 'Breeding'],
       ['contact', 'Contact'],
     ] as [PageKey, string][],
