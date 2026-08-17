@@ -32,7 +32,7 @@ export const routes: Record<Lang, Record<PageKey, string>> = {
 export const ui = {
   de: {
     nav: [
-      ['dog', 'Pünktchen'],
+      ['dog', 'Unsere Hunde'],
       ['about', 'Über mich'],
       ['breeding', 'Zucht'],
       ['contact', 'Kontakt'],
@@ -40,7 +40,7 @@ export const ui = {
     language: 'EN',
     menu: 'Menü',
     skip: 'Zum Inhalt springen',
-    footerLine: 'Dalmatinerzucht in Hanau · im CDF / VDH',
+    footerLine: 'Dalmatinerzucht im CDF / VDH',
     legal: 'Impressum',
     privacy: 'Datenschutz',
     instagram: 'Instagram',
@@ -48,7 +48,7 @@ export const ui = {
   },
   en: {
     nav: [
-      ['dog', 'Pünktchen'],
+      ['dog', 'Our dogs'],
       ['about', 'About me'],
       ['breeding', 'Breeding'],
       ['contact', 'Contact'],
@@ -56,7 +56,7 @@ export const ui = {
     language: 'DE',
     menu: 'Menu',
     skip: 'Skip to content',
-    footerLine: 'Dalmatian kennel in Hanau · within CDF / VDH',
+    footerLine: 'Dalmatian breeding within CDF / VDH',
     legal: 'Legal notice',
     privacy: 'Privacy',
     instagram: 'Instagram',

@@ -8,31 +8,39 @@ import { routes, type Lang } from '../data/site';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
+const links = {
+  cLitter: 'https://www.bacardi-feeling.de/zucht-1/c-wurf/',
+  lua: 'https://cdf-dalmatinerverein.de/lua-zuchtprogramm/',
+};
 const c = lang === 'de' ? {
-  title: 'Über mich & Schnüffler’s | Dalmatinerzucht Hanau',
-  description: 'Ich bin Cosima Grun. Mit meiner Dalmatinerhündin Pünktchen habe ich in Hanau den Grundstein für Schnüffler’s Dalmatiner gelegt.',
+  title: 'Über mich & Schnüffler’s | Verantwortungsvolle Dalmatinerzucht',
+  description: 'Ich bin Cosima Grun. Bei Schnüffler’s verbinde ich LUA, Gesundheit, Wesen und genetische Vielfalt zu einer verantwortungsvollen Dalmatinerzucht.',
   eyebrow: 'Über mich & Schnüffler’s',
-  heading: 'Mein Lebenstraum auf vier Pfoten.',
-  lead: 'Solange ich denken kann, wünsche ich mir einen Dalmatiner. Aus diesem Wunsch entstand nach sorgfältiger Vorbereitung Schnüffler’s Dalmatiner.',
-  searchTitle: 'Die lange Suche nach dem richtigen Hund.',
-  searchText: ['Ich wollte meine Entscheidung nicht überstürzen. Deshalb suchte ich lange nach Züchtern, deren Vorstellungen zu meinen passten: freundliche, alltagstaugliche Dalmatiner, eine bewusste Zuchtplanung, genetische Vielfalt und das LUA-Gen.', 'Bei der Zuchtstätte Bacardi Feeling fand ich diese Haltung – und schließlich Pünktchen. Aus Bacardi Feeling Canadian Amethyst wurde ein fester Mittelpunkt meines Lebens.'],
-  whyTitle: 'Warum züchten?',
-  whyText: ['Pünktchen ist freundlich zu Menschen und anderen Hunden, zu Hause angenehm ruhig und draußen begeistert aktiv. Für mich vereint sie genau die Eigenschaften, die ich am Dalmatiner schätze.', 'Mit Schnüffler’s möchte ich diese Linie mit Sorgfalt fortführen. Mein Wunsch zu züchten beruht nicht allein auf Pünktchens Erscheinungsbild, sondern ebenso auf ihrem Wesen, ihrer Gesundheit und ihrer sozialen Art.'],
-  homeTitle: 'Zu Hause in Hanau.',
-  homeText: 'Zu unserem Alltag gehören die großen Felder in der Umgebung, tägliche Bewegung und Kontakte zu anderen Hunden. Hier erlebe ich Pünktchens Balance: ruhig im Haus, ausdauernd und lebensfroh draußen.',
+  heading: 'Mein Weg zur verantwortungsvollen Zucht.',
+  lead: 'Solange ich denken kann, wünsche ich mir Dalmatiner an meiner Seite. Aus diesem Wunsch und einer klaren Vorstellung von Gesundheit, Wesen und Vielfalt entstand Schnüffler’s.',
+  searchTitle: 'Eine Linie, die zu meiner Haltung passt.',
+  searchText: ['Ich wollte meine Entscheidung nicht überstürzen. Deshalb suchte ich lange nach Züchtern, deren Vorstellungen zu meinen passten: freundliche, alltagstaugliche Dalmatiner, eine bewusste Zuchtplanung, genetische Vielfalt und das LUA-Gen.', 'Bei Bacardi Feeling fand ich diese Haltung. Pünktchen stammt aus dem außergewöhnlich erfolgreichen C-Wurf, in dem bis auf einen Hund alle Wurfgeschwister eine Zuchtzulassung erhielten. Die Zuchtstätte hat die LUA-Zucht im CDF entscheidend mit vorangebracht – ein Ziel, das auch meine künftigen Zuchtentscheidungen prägt.'],
+  originLinks: ['Zum C-Wurf von Bacardi Feeling', 'Das LUA-Zuchtprogramm im CDF'],
+  whyTitle: 'Die Grundlage meiner Zucht.',
+  whyText: ['Pünktchen vereint ein offenes, freundliches Wesen mit robuster Gesundheit und hoher genetischer Vielfalt. Zu Hause ist sie ruhig, draußen bewegungsfreudig und im Umgang mit Welpen und Junghunden besonders liebevoll.', 'Diese Eigenschaften prägen die züchterische Grundlage von Schnüffler’s. Meine Zucht soll sich langfristig entwickeln und dabei stets demselben Anspruch folgen: gesunde, soziale und alltagstaugliche Dalmatiner verantwortungsvoll weiterzugeben.'],
+  homeEyebrow: 'Leben mit Dalmatinern',
+  homeTitle: 'Ein aktiver, gemeinsamer Alltag.',
+  homeText: 'Zu unserem Alltag gehören große Felder, tägliche Bewegung und Kontakte zu anderen Hunden. Hier zeigt sich die Balance, die ich am Dalmatiner schätze: ruhig im Haus, ausdauernd und lebensfroh draußen.',
   cta: 'Meine Zuchtgedanken',
 } : {
-  title: 'About me & Schnüffler’s | Dalmatian breeder in Hanau',
-  description: 'I am Cosima Grun. Together with my Dalmatian Pünktchen, I laid the foundations for Schnüffler’s Dalmatians in Hanau, Germany.',
+  title: 'About me & Schnüffler’s | Responsible Dalmatian breeding',
+  description: 'I am Cosima Grun. At Schnüffler’s, I bring LUA, health, temperament and genetic diversity together in a responsible Dalmatian breeding programme.',
   eyebrow: 'About me & Schnüffler’s',
-  heading: 'My lifelong dream on four paws.',
-  lead: 'I had wanted a Dalmatian for as long as I could remember. Careful preparation turned that wish into Schnüffler’s Dalmatians.',
-  searchTitle: 'A long search for the right dog.',
-  searchText: ['I did not want to rush my decision. I searched carefully for breeders whose priorities matched my own: friendly Dalmatians suited to everyday life, thoughtful breeding decisions, genetic diversity and the LUA gene.', 'I found that approach at Bacardi Feeling – and ultimately found Pünktchen. Bacardi Feeling Canadian Amethyst soon became a central part of my life.'],
-  whyTitle: 'Why breed?',
-  whyText: ['Pünktchen is friendly with people and other dogs, pleasantly calm at home and enthusiastically active outdoors. For me, she brings together the qualities I value in a Dalmatian.', 'Through Schnüffler’s, I hope to continue this line with care. My wish to breed rests not only on Pünktchen’s appearance, but equally on her temperament, health and sociable nature.'],
-  homeTitle: 'At home in Hanau.',
-  homeText: 'Our daily life includes the wide local fields, dependable exercise and time with other dogs. This is where I see Pünktchen’s balance most clearly: calm indoors, enduring and joyful outside.',
+  heading: 'My path to responsible breeding.',
+  lead: 'For as long as I can remember, I have wanted Dalmatians by my side. That wish, together with a clear vision of health, temperament and diversity, became Schnüffler’s.',
+  searchTitle: 'A line that reflects my values.',
+  searchText: ['I did not want to rush my decision. I searched carefully for breeders whose priorities matched my own: friendly Dalmatians suited to everyday life, thoughtful breeding decisions, genetic diversity and the LUA gene.', 'I found that approach at Bacardi Feeling. Pünktchen comes from its exceptionally successful C-litter, in which all but one sibling received breeding approval. The kennel has played an important role in advancing LUA breeding within CDF—an aim that will continue to shape my future breeding decisions.'],
+  originLinks: ['Bacardi Feeling’s C-litter', 'The CDF LUA breeding programme'],
+  whyTitle: 'The foundation of my breeding programme.',
+  whyText: ['Pünktchen combines an open, friendly temperament with robust health and strong genetic diversity. She is calm at home, active outdoors and especially gentle with puppies and young dogs.', 'These qualities shape the breeding foundation of Schnüffler’s. My breeding programme is intended to grow over time while always following the same standard: responsibly raising healthy, sociable Dalmatians suited to everyday life.'],
+  homeEyebrow: 'Life with Dalmatians',
+  homeTitle: 'An active life together.',
+  homeText: 'Our daily routine includes wide open fields, dependable exercise and time with other dogs. This is where I see the balance I value in Dalmatians: calm indoors, enduring and joyful outside.',
   cta: 'My breeding approach',
 };
 ---
@@ -45,14 +53,20 @@ const c = lang === 'de' ? {
       <Image src={runningImage} alt={lang === 'de' ? 'Pünktchen läuft Cosima auf einem Feldweg entgegen' : 'Pünktchen running towards Cosima on a country path'} widths={[640, 960, 1440, 1920]} sizes="(max-width: 900px) 100vw, 60vw" format="avif" />
     </div>
     <div class="dog-feature-copy">
-      <div><p class="eyebrow">Hanau · Hessen</p><h2>{c.homeTitle}</h2></div>
+      <div><p class="eyebrow">{c.homeEyebrow}</p><h2>{c.homeTitle}</h2></div>
       <p>{c.homeText}</p>
     </div>
   </section>
 
   <section class="body-grid shell">
     <h2>{c.searchTitle}</h2>
-    <div class="body-copy">{c.searchText.map((p) => <p>{p}</p>)}</div>
+    <div class="body-copy">
+      {c.searchText.map((p) => <p>{p}</p>)}
+      <div class="link-row">
+        <a class="text-link" href={links.cLitter} target="_blank" rel="noopener">{c.originLinks[0]}</a>
+        <a class="text-link" href={links.lua} target="_blank" rel="noopener">{c.originLinks[1]}</a>
+      </div>
+    </div>
   </section>
 
   <section class="dog-feature">

@@ -460,6 +460,10 @@ a {
   border-bottom: 1px solid var(--ink);
 }
 
+.page-intro > * {
+  min-width: 0;
+}
+
 .page-number {
   align-self: start;
   color: var(--red);
@@ -474,6 +478,8 @@ a {
   font-size: clamp(2.8rem, 5vw, 5rem);
   letter-spacing: -0.07em;
   line-height: 0.84;
+  hyphens: auto;
+  overflow-wrap: anywhere;
 }
 
 .page-lead {

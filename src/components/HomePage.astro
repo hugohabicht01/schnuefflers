@@ -9,56 +9,56 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 
 const content = lang === 'de' ? {
-  title: 'Schnüffler’s Dalmatiner | Dalmatinerzucht in Hanau',
-  description: 'Ich bin Cosima Grun und baue mit meiner LUA-Hündin Pünktchen die Dalmatinerzucht Schnüffler’s in Hanau auf. Unser A-Wurf ist für Sommer 2027 geplant.',
-  heroEyebrow: 'Dalmatinerzucht · Hanau',
-  heroTitle: ['Ein neues Kapitel', 'in Schwarz & Weiß.'],
-  heroText: 'Schnüffler’s ist meine junge Dalmatinerzucht in Hanau. Im Mittelpunkt steht meine Hündin Pünktchen – freundlich, ausgeglichen, sportlich und zur Zucht zugelassen.',
-  heroLink: 'Pünktchen kennenlernen',
-  labels: ['Geboren', 'Zucht', 'Genstatus', 'Geplant'],
-  facts: ['02.12.23', 'CDF / VDH', 'LUA · N/hu', 'A-Wurf · 2027'],
+  title: 'Schnüffler’s Dalmatiner | Dalmatinerzucht im CDF / VDH',
+  description: 'Schnüffler’s steht für verantwortungsvolle LUA-Dalmatinerzucht im CDF / VDH mit Fokus auf Gesundheit, Wesen und genetische Vielfalt. A-Wurf geplant für Sommer 2027.',
+  heroEyebrow: 'Dalmatinerzucht · CDF / VDH',
+  heroTitle: ['Gesundheit. Wesen.', 'Vielfalt.'],
+  heroText: 'Mit Schnüffler’s möchte ich gesunde, wesensfeste und genetisch vielfältige Dalmatiner züchten. Jede Entscheidung treffe ich mit Blick auf ein langes, gutes Hundeleben.',
+  heroLink: 'Meine Zucht kennenlernen',
+  labels: ['Grundlage', 'Zuchtverband', 'Zuchtziel', 'Wurfplanung'],
+  facts: ['Gesundheit & Wesen', 'CDF / VDH', 'LUA & Vielfalt', 'A-Wurf · 2027'],
   introEyebrow: 'Schnüffler’s Dalmatiner',
-  introTitle: 'Mit Sorgfalt beginnen.',
-  introText: 'Mit Pünktchen habe ich mir nach langer und sorgfältiger Suche meinen Lebenstraum erfüllt. Ich fand genau die Hündin, die ich mir erhofft hatte: sozial, freundlich, bewegungsfreudig und aus einer Zucht, die Gesundheit und genetische Vielfalt ernst nimmt.',
-  dogEyebrow: 'Bacardi Feeling Canadian Amethyst',
+  introTitle: 'Verantwortungsvoll weiterdenken.',
+  introText: 'Meine Zuchtplanung verbindet LUA, nachvollziehbare Gesundheitsdaten, genetische Vielfalt und ein alltagstaugliches Wesen. Pünktchen verkörpert diese Ziele und bildet die züchterische Grundlage des geplanten A-Wurfs.',
+  dogEyebrow: 'Unsere Hunde · Zuchthündin',
   dogTitle: 'Pünktchen',
-  dogText: 'Zu Hause ist Pünktchen ruhig und entspannt, draußen voller Energie. Jeden Tag laufen und spielen wir auf den großen Feldern in unserer Umgebung, oft gemeinsam mit anderen Hunden.',
-  dogLink: 'Zu Pünktchens Profil',
+  dogText: 'Bacardi Feeling Canadian Amethyst stammt aus dem C-Wurf von Bacardi Feeling. Sie ist LUA N/hu, genetisch sehr vielfältig und zur Zucht im CDF / VDH zugelassen. Ihr offenes, soziales Wesen zeigt sie im Alltag ebenso wie im liebevollen Umgang mit Welpen und Junghunden.',
+  dogLink: 'Pünktchens ausführliches Profil',
   futureEyebrow: 'Wurfplanung',
   futureTitle: 'Unser A-Wurf ist für den Sommer 2027 geplant.',
-  futureText: 'Meine Planung steht noch am Anfang. Gesundheit, eine passende Verpaarung und verantwortungsvolle Vorbereitung haben Vorrang. Wer uns früh kennenlernen möchte, kann sich gern unverbindlich bei mir melden.',
+  futureText: 'Gesundheit, eine passende Verpaarung und eine verantwortungsvolle Vorbereitung haben Vorrang. Wer meine Zucht früh kennenlernen möchte, kann sich gern unverbindlich bei mir melden.',
   futureLink: 'Mehr zur Zuchtplanung',
-  valuesEyebrow: 'Wofür wir stehen',
+  valuesEyebrow: 'Wofür meine Zucht steht',
   values: [
-    ['Genetische Vielfalt', 'LUA-Genstatus und eine sorgfältige Auswahl der Verpaarung gehören für uns zu verantwortungsvoller Dalmatinerzucht.'],
-    ['Wesen', 'Pünktchens freundliche, soziale und ausgeglichene Art ist ein wesentlicher Grund für meinen Zuchtwunsch.'],
-    ['Bewegung', 'Dalmatiner brauchen verlässlich Bewegung und Beschäftigung. Pünktchen läuft und spielt täglich ein bis zwei Stunden draußen.'],
+    ['Genetische Vielfalt', 'LUA-Genstatus, Abstammung und eine sorgfältige Auswahl jeder Verpaarung gehören für mich zu verantwortungsvoller Dalmatinerzucht.'],
+    ['Wesen', 'Ich möchte freundliche, soziale und ausgeglichene Dalmatiner züchten, die ihre Menschen im Alltag zuverlässig begleiten.'],
+    ['Lebensqualität', 'Bewegung, Beschäftigung und enger Familienanschluss sind für mich die Grundlage für ein ausgeglichenes Dalmatinerleben.'],
   ],
 } : {
-  title: 'Schnüffler’s Dalmatians | Dalmatian breeder in Hanau',
-  description: 'I am Cosima Grun, building Schnüffler’s Dalmatians in Hanau with my LUA Dalmatian Pünktchen. Our first litter is planned for summer 2027.',
-  heroEyebrow: 'Dalmatian kennel · Hanau',
-  heroTitle: ['A new chapter', 'in black & white.'],
-  heroText: 'Schnüffler’s is my new Dalmatian kennel in Hanau. At its heart is my dog Pünktchen – friendly, calm, athletic and approved for breeding.',
-  heroLink: 'Meet Pünktchen',
-  labels: ['Born', 'Breeding', 'Gene status', 'Planned'],
-  facts: ['02 Dec 23', 'CDF / VDH', 'LUA · N/hu', 'First litter · 2027'],
+  title: 'Schnüffler’s Dalmatians | Breeding within CDF / VDH',
+  description: 'Schnüffler’s stands for responsible LUA Dalmatian breeding within CDF / VDH, with a focus on health, temperament and genetic diversity. First litter planned for summer 2027.',
+  heroEyebrow: 'Dalmatian breeding · CDF / VDH',
+  heroTitle: ['Health. Temperament.', 'Diversity.'],
+  heroText: 'Through Schnüffler’s, I aim to breed healthy, sound and genetically diverse Dalmatians. Every decision is guided by the prospect of a long and fulfilling life for each dog.',
+  heroLink: 'Discover my breeding approach',
+  labels: ['Foundation', 'Association', 'Breeding goals', 'Litter plans'],
+  facts: ['Health & temperament', 'CDF / VDH', 'LUA & diversity', 'First litter · 2027'],
   introEyebrow: 'Schnüffler’s Dalmatians',
-  introTitle: 'Beginning with care.',
-  introText: 'After a long and thoughtful search, Pünktchen fulfilled my lifelong wish to share my life with a Dalmatian. I found exactly the dog I had hoped for: social, friendly, active and from breeders who take health and genetic diversity seriously.',
-  dogEyebrow: 'Bacardi Feeling Canadian Amethyst',
+  introTitle: 'Thinking responsibly ahead.',
+  introText: 'My breeding plans bring together LUA, transparent health data, genetic diversity and a temperament suited to everyday life. Pünktchen embodies these goals and provides the breeding foundation for the planned first litter.',
+  dogEyebrow: 'Our dogs · foundation female',
   dogTitle: 'Pünktchen',
-  dogText: 'Pünktchen is calm and relaxed at home, but full of energy outdoors. Every day we run and play in the large fields near home, often with other dogs.',
-  dogLink: 'View Pünktchen’s profile',
+  dogText: 'Bacardi Feeling Canadian Amethyst comes from the Bacardi Feeling C-litter. She is LUA N/hu, genetically diverse and approved for breeding within CDF / VDH. Her open, sociable temperament is evident both in everyday life and in her gentle way with puppies and young dogs.',
+  dogLink: 'Read Pünktchen’s full profile',
   futureEyebrow: 'Litter plans',
   futureTitle: 'Our first litter is planned for summer 2027.',
-  futureText: 'My plans are still at an early stage. Health, a suitable pairing and responsible preparation come first. Anyone wishing to get to know us early is welcome to contact me without obligation.',
+  futureText: 'Health, a suitable pairing and responsible preparation come first. Anyone wishing to learn about my breeding programme early is welcome to contact me without obligation.',
   futureLink: 'Read about our breeding plans',
-  valuesEyebrow: 'What matters to us',
+  valuesEyebrow: 'What my breeding stands for',
   values: [
-    ['Genetic diversity', 'LUA gene status and the careful selection of a pairing are part of responsible Dalmatian breeding for us.'],
-    ['Temperament', 'Pünktchen’s friendly, social and even-tempered nature is central to my wish to continue her line.'],
-    ['Exercise', 'Dalmatians need dependable daily exercise and stimulation. Pünktchen runs and plays outdoors for one to two hours every day.'],
+    ['Genetic diversity', 'LUA gene status, pedigree and the careful selection of every pairing are essential to responsible Dalmatian breeding for me.'],
+    ['Temperament', 'I want to breed friendly, sociable and balanced Dalmatians who are dependable companions in everyday life.'],
+    ['Quality of life', 'Exercise, enrichment and close family contact are, for me, the foundation of a balanced Dalmatian life.'],
   ],
 };
 ---
@@ -81,7 +81,7 @@ const content = lang === 'de' ? {
       </div>
       <div class="hero-side">
         <p>{content.heroText}</p>
-        <a class="button-link" href={routes[lang].dog}>{content.heroLink}</a>
+        <a class="button-link" href={routes[lang].breeding}>{content.heroLink}</a>
       </div>
     </div>
   </section>
@@ -90,7 +90,7 @@ const content = lang === 'de' ? {
     {content.facts.map((fact, index) => (
       <div>
         <span class="fact-label">{content.labels[index]}</span>
-        <strong class={index === 0 ? 'date-mark' : ''}>{fact}</strong>
+        <strong>{fact}</strong>
       </div>
     ))}
   </section>
